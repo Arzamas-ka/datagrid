@@ -76,8 +76,8 @@ li {
     position: absolute;
     padding: 0;
     border: 0;
-    height: 1px; 
-    width: 1px; 
+    height: 1px;
+    width: 1px;
     overflow: hidden;
 
     @media (min-width: $bp-bart) {
@@ -89,6 +89,7 @@ li {
     }
 
     th {
+      position: relative;
       background-color: rgba(29, 150, 178, 1);
       border-left: 1px solid #ccc;
       border-bottom: 1px solid #ccc;
@@ -196,6 +197,10 @@ li {
         }
       }
 
+      .actions {
+        position: relative;
+      }
+
       img {
         width: 50px;
         height: 50px;
@@ -209,6 +214,30 @@ li {
         border-left: 1px solid rgba(29, 150, 178, 1);
         border-bottom: 1px solid rgba(29, 150, 178, 1);
         text-align: center;
+      }
+
+      .pencil {
+        position: absolute;
+        top: 38%;
+        right: -4px;
+        width: 50px;
+        height: 19px;
+
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+
+      .delete {
+        position: absolute;
+        top: 38%;
+        left: 3px;
+        width: 34px;
+        height: 19px;
+
+        &:hover {
+          transform: scale(1.1);
+        }
       }
 
       .row:hover .scope {
@@ -243,7 +272,6 @@ li {
         border-radius: 50%;
       }
 
-
       &:last-of-type {
         @media (min-width: $bp-bart) {
           border-right: 1px solid rgba(29, 150, 178, 1);
@@ -270,5 +298,25 @@ li {
         content: none;
       }
     }
+  }
+
+  .arrow-down {
+    position: absolute;
+    top: 71%;
+    right: 3%;
+    width: 8px;
+    height: 8px;
+    cursor: pointer;
+    transform: rotate(90deg);
+  }
+
+  .arrow-top {
+    position: absolute;
+    top: 54%;
+    right: 3%;
+    width: 8px;
+    height: 8px;
+    cursor: pointer;
+    transform: rotate(-90deg);
   }
 }
