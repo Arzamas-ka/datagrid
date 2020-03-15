@@ -9,12 +9,12 @@ import arrowDownActive from '../../images/arrow-down-active.svg';
 import arrowTopActive from '../../images/arrow-top-active.svg';
 
 const sortableFields = [
-  'Id',
-  'Name',
-  'Job',
-  'Job Type',
-  'Experience',
-  'Married'
+  'id',
+  'name',
+  'job',
+  'job type',
+  'experience',
+  'married'
 ];
 
 const getArrow = (cell, sort) => {
@@ -43,12 +43,12 @@ const TableHeader = ({ sort, sortBy }) => {
               className='sortable'
               onClick={() => sortBy(cell.title)}
             >
-              {cell.title}
+              {cell.title.toLocaleUpperCase()}
               <img className='arrow-down' src={arrowDownImg} alt='arrow-down' />
               <img className='arrow-top' src={arrowTopImg} alt='arrow-top' />
             </th>
           ) : (
-            <th key={shortid.generate()}>{cell.title}</th>
+            <th key={shortid.generate()}>{cell.title.toLocaleUpperCase()}</th>
           );
         })}
       </tr>

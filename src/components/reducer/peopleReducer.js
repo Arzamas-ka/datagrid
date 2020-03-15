@@ -17,7 +17,7 @@ const initialState = arrData(faker);
 const peopleReducer = (state = initialState, action) => {
   switch (action.type) {
     case DELETE_PERSON:
-      return state.filter(person => person.id !== action.payload.id);
+      return state.filter(person => person.id !== action.payload);
     case UPDATE_PERSON:
       const newPersons = [...state];
       const indexUpdatedPerson = newPersons.findIndex(

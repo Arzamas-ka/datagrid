@@ -61,7 +61,7 @@ class TableRow extends Component {
           </th>
           <td>
             {
-              // <img src={cell.avatar} alt='avatar' />
+              <img src={cell.avatar} alt='avatar' />
             }
           </td>
           <td>{cell.name}</td>
@@ -74,7 +74,9 @@ class TableRow extends Component {
           <td>{cell.jobType}</td>
           <td>{cell.experience.toLocaleString(navigator.language)}</td>
           <td>
-            <a href={`${cell.linkedInProfile}`}>{cell.linkedInProfile}</a>
+            <a href={`https://www.${cell.linkedInProfile}`}>
+              {cell.linkedInProfile}
+            </a>
           </td>
           <td>{cell.married ? 'Yes' : 'No'}</td>
           <td className='actions'>
