@@ -1,12 +1,12 @@
 import React from 'react';
-import MainTable from './components/MainTable';
+import Table from './components/Table';
 
 const App = () => {
   return (
     <div>
-      <MainTable />
+      <Table />
     </div>
   );
-}
+};
 
 export default App;
