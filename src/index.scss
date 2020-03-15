@@ -217,7 +217,33 @@ li {
 
       .actions {
         position: relative;
+
+        &--edit {
+          text-align: right;
+        }
       }
+    
+      .actions__button {
+        display: block;
+        width: 70px;
+        padding: 5px 10px;
+        margin-bottom: 8px;
+        outline: none;
+        cursor: pointer;
+
+        &--save {
+          background-color: green;
+          border-color: green;
+          color: #fff;
+        }
+
+        &--cancel {
+          background-color: red;
+          border-color: red;
+          color: #fff;
+        }
+      }
+      
 
       img {
         width: 50px;
@@ -294,6 +320,18 @@ li {
         @media (min-width: $bp-bart) {
           border-right: 1px solid rgba(29, 150, 178, 1);
         }
+      }
+    }
+
+    td input,
+    td select {
+      width: 90%;
+    }
+
+    .row {
+      &--editable th,
+      &--editable td {
+        padding: 5px;
       }
     }
 

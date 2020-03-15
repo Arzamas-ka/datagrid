@@ -1,47 +1,33 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import shortid from 'shortid';
-import pencilImg from '../../images/pencil.svg';
-import deleteImg from '../../images/delete.svg';
+import {
+  deletePerson,
+  updatePerson
+} from '../../components/actions/peopleActions';
+import TableRow from './TableRow';
 
-const TableBody = ({ people }) => {
+const TableBody = ({ people, deletePerson, updatePerson }) => {
   return (
     <tbody>
-      {people.map(cell => {
-        return (
-          <tr className='row' key={shortid.generate()}>
-            <th className='scope'>
-              {cell.id.toLocaleString(navigator.language)}
-            </th>
-            <td>
-              {
-                // <img src={cell.avatar} alt='avatar' />
-              }
-            </td>
-            <td>{cell.name}</td>
-            <td className='tel'>
-              <a href={`tel:${cell.tel}`}>{cell.tel} </a>
-            </td>
-            <td className='job'>
-              <span>{cell.job}</span>
-            </td>
-            <td>{cell.jobType}</td>
-            <td>{cell.experience.toLocaleString(navigator.language)}</td>
-            <td>
-              <a href={`${cell.linkedInProfile}`}>{cell.linkedInProfile}</a>
-            </td>
-            <td>{cell.married ? 'Yes' : 'No'}</td>
-            <td className='actions'>
-              <img className='pencil' src={pencilImg} alt='pencil' />
-              <img className='delete' src={deleteImg} alt='delete' />
-            </td>
-          </tr>
-        );
-      })}
+      {people.map(cell => (
+        <TableRow
+          cell={cell}
+          key={shortid.generate()}
+          deletePerson={deletePerson}
+          updatePerson={updatePerson}
+        />
+      ))}
     </tbody>
   );
 };
 
 const mapStateToProps = ({ people }) => ({ people });
+const mapDispatchToProps = dispatch => {
+  return {
+    deletePerson: personId => dispatch(deletePerson(personId)),
+    updatePerson: person => dispatch(updatePerson(person))
+  };
+};
 
-export default connect(mapStateToProps, null)(TableBody);
+export default connect(mapStateToProps, mapDispatchToProps)(TableBody);
