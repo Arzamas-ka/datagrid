@@ -161,7 +161,11 @@ class TableRow extends Component {
               />
             </td>
             <td>
-              <select name='married' onChange={this.handleFieldsChange}>
+              <select
+                name='married'
+                value={this.state.married}
+                onChange={this.handleFieldsChange}
+              >
                 <option value='true'>Yes</option>
                 <option value='false'>No</option>
               </select>
