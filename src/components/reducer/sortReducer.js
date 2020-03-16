@@ -1,20 +1,38 @@
 import { SORT_BY } from '../actions/sortActions';
 
-const initialState = {
-  fieldName: '',
-  type: ''
+const getInitialState = () => {
+  let sortSettings;
+
+  if (localStorage.getItem('sort')) {
+    sortSettings = JSON.parse(localStorage.getItem('sort'));
+  } else {
+    sortSettings = {
+      fieldName: '',
+      type: ''
+    };
+  }
+
+  return sortSettings;
 };
 
+const initialState = getInitialState();
+
 const sortReducer = (state = initialState, action) => {
-  switch(action.type) {
-    case SORT_BY: 
+  switch (action.type) {
+    case SORT_BY:
       let type = '';
+      let newState;
+
       if (state.fieldName === action.payload) {
         type = state.type === 'ASC' ? 'DESC' : 'ASC';
-        return { ...state, type };
-      } else { 
-        return { ...state, fieldName: action.payload, type: 'ASC' };
+        newState = { ...state, type };
+      } else {
+        newState = { ...state, fieldName: action.payload, type: 'ASC' };
       }
+
+      localStorage.setItem('sort', JSON.stringify(newState));
+      return newState;
+
     default:
       return state;
   }
