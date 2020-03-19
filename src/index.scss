@@ -1,0 +1,379 @@
+@import 'bourbon';
+@import '../src/styles/variables';
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0 auto;
+  padding: 0;
+
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.2;
+  color: rgba(94, 93, 82, 1);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: rgba(51, 122, 168, 1);
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    color: rgba(75, 138, 178, 1);
+  }
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+.container {
+  margin: 5% 3%;
+
+  @media (min-width: $bp-bart) {
+    margin: 2%;
+  }
+}
+
+.table {
+  width: 100%;
+  margin-bottom: 1.5em;
+  border-spacing: 0;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  white-space: nowrap;
+
+  @media (min-width: $bp-bart) {
+    font-size: 0.9em;
+  }
+
+  @media (min-width: $bp-marge) {
+    font-size: 1em;
+  }
+
+  thead {
+    position: absolute;
+    padding: 0;
+    border: 0;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    z-index: 10;
+
+    @media (min-width: $bp-bart) {
+      position: relative;
+      clip: auto;
+      height: auto;
+      width: auto;
+      overflow: auto;
+    }
+
+    th {
+      position: relative;
+      background-color: rgba(29, 150, 178, 1);
+      border-left: 1px solid #ccc;
+      border-bottom: 1px solid #ccc;
+      font-weight: normal;
+      text-align: center;
+      color: white;
+
+      position: sticky;
+      position: -webkit-sticky;
+      top: 0;
+      z-index: 10;
+    }
+  }
+
+  tbody,
+  tr,
+  th,
+  td {
+    display: block;
+    padding: 0;
+    // white-space: normal;
+    white-space: nowrap;
+  }
+
+  tr {
+    @media (min-width: $bp-bart) {
+      display: table-row;
+    }
+  }
+
+  th,
+  td {
+    padding: 1em;
+    vertical-align: middle;
+    background-color: white;
+
+    @media (min-width: $bp-lisa) {
+      padding: 1em 0.75em;
+    }
+
+    @media (min-width: $bp-bart) {
+      display: table-cell;
+      padding: 0.75em;
+    }
+
+    @media (min-width: $bp-marge) {
+      padding: 1em 0.75em;
+    }
+
+    @media (min-width: $bp-homer) {
+      padding: 1em;
+    }
+  }
+
+  td {
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .sortable {
+    cursor: pointer;
+  }
+
+  .row:hover th,
+  .row:hover td {
+    background-color: #f0f0f2 !important;
+  }
+
+  caption {
+    margin-bottom: 1em;
+    font-size: 1em;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+
+    @media (min-width: $bp-bart) {
+      font-size: 1.5em;
+    }
+  }
+
+  tbody {
+    @media (min-width: $bp-bart) {
+      display: table-row-group;
+
+      tr {
+        margin-bottom: 1em;
+
+        @media (min-width: $bp-bart) {
+          display: table-row;
+          border-width: 1px;
+        }
+
+        &:last-of-type {
+          margin-bottom: 0;
+        }
+
+        &:nth-of-type(even) {
+          @media (min-width: $bp-bart) {
+            background-color: rgba(94, 93, 82, 0.1);
+          }
+        }
+      }
+
+      .row:hover {
+        background-color: #f0f0f2 !important;
+        cursor: pointer;
+      }
+
+      .tel,
+      .job {
+        text-align: right;
+      }
+
+      .tel {
+        & a {
+          color: #5e5d52;
+
+          &:hover {
+            color: #1d96b2;
+          }
+        }
+      }
+
+      .actions {
+        position: relative;
+
+        &--edit {
+          text-align: right;
+        }
+      }
+    
+      .actions__button {
+        display: block;
+        width: 70px;
+        padding: 5px 10px;
+        margin-bottom: 8px;
+        outline: none;
+        cursor: pointer;
+
+        &--save {
+          background-color: green;
+          border-color: green;
+          color: #fff;
+        }
+
+        &--cancel {
+          background-color: red;
+          border-color: red;
+          color: #fff;
+        }
+      }
+      
+
+      img {
+        width: 50px;
+        height: 50px;
+
+        border-radius: 50%;
+      }
+
+      .scope {
+        background-color: white;
+        color: #5e5d52;
+        border-left: 1px solid rgba(29, 150, 178, 1);
+        border-bottom: 1px solid rgba(29, 150, 178, 1);
+        text-align: center;
+      }
+
+      .pencil {
+        position: absolute;
+        top: 38%;
+        right: -4px;
+        width: 50px;
+        height: 19px;
+
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+
+      .delete {
+        position: absolute;
+        top: 38%;
+        left: 3px;
+        width: 34px;
+        height: 19px;
+
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+
+      .row:hover .scope {
+        background-color: #f0f0f2 !important;
+      }
+
+      @media (min-width: $bp-lisa) {
+        border-left: 1px solid rgba(29, 150, 178, 1);
+        border-bottom: 1px solid rgba(29, 150, 178, 1);
+      }
+
+      @media (min-width: $bp-bart) {
+        background-color: transparent;
+        color: rgba(94, 93, 82, 1);
+        text-align: center;
+      }
+    }
+
+    td {
+      text-align: center;
+
+      @media (min-width: $bp-bart) {
+        border-left: 1px solid rgba(29, 150, 178, 1);
+        border-bottom: 1px solid rgba(29, 150, 178, 1);
+        text-align: center;
+      }
+
+      img {
+        width: 55px;
+        height: 55px;
+
+        border-radius: 50%;
+      }
+
+      &:last-of-type {
+        @media (min-width: $bp-bart) {
+          border-right: 1px solid rgba(29, 150, 178, 1);
+        }
+      }
+    }
+
+    td input,
+    td select {
+      width: 90%;
+    }
+
+    .row {
+      &--editable th,
+      &--editable td {
+        padding: 5px;
+      }
+    }
+
+    tr {
+      border-left: 1px solid rgba(29, 150, 178, 1);
+      border-bottom: 1px solid rgba(29, 150, 178, 1);
+    }
+
+    td[data-title]:before {
+      content: attr(data-title);
+      float: left;
+      font-size: 0.8em;
+      color: rgba(94, 93, 82, 0.75);
+
+      @media (min-width: $bp-lisa) {
+        font-size: 0.9em;
+      }
+
+      @media (min-width: $bp-bart) {
+        content: none;
+      }
+    }
+  }
+
+  .arrow-down {
+    position: absolute;
+    top: 71%;
+    right: 3%;
+    width: 8px;
+    height: 8px;
+    cursor: pointer;
+    transform: rotate(90deg);
+  }
+
+  .arrow-top {
+    position: absolute;
+    top: 51%;
+    right: 3%;
+    width: 8px;
+    height: 8px;
+    cursor: pointer;
+    transform: rotate(-90deg);
+  }
+}
